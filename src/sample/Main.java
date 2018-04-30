@@ -24,7 +24,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle("Teste GUI");
-        botaoDeConfirmBox = new Button("ConfirmBox");
+        botaoDeConfirmBox = new Button("Mudar Tema");
+        botaoDeConfirmBox.setStyle("-fx-background-color: cornsilk");
         botaoParaFecharPrograma = new Button("FECHAR");
 
         //metodo chamado quando o botão para fechar o programa é clicado.
@@ -35,6 +36,10 @@ public class Main extends Application {
 
         botaoDeConfirmBox.setOnAction(e -> {
             boolean result = ConfirmBox.display("TITULO DA JANELA", "Você tem certeza?");
+            if(result)
+            {
+                setUserAgentStylesheet(STYLESHEET_CASPIAN);
+            }
         });
 
         botaoParaFecharPrograma.setOnAction(e -> {
@@ -47,6 +52,7 @@ public class Main extends Application {
         botao4 = new Button("ListView");
         botao5 = new Button("TreeView");
         botao6 = new Button("TableView");
+        botao7 = new  Button("Menu");
 
         botao1.setOnAction(e -> AlertBox.display("TITULO", "MENSAGEM DE TESTE"));
         botao2.setOnAction(e -> DropDownList.display());
@@ -54,10 +60,11 @@ public class Main extends Application {
         botao4.setOnAction(e -> ListViewW.display());
         botao5.setOnAction(e -> Arvore.display());
         botao6.setOnAction(e -> Tabela.display());
+        botao7.setOnAction(e -> MenuDrop.display());
 
 
         VBox menuEsquerdo = new VBox(5);
-        menuEsquerdo.getChildren().addAll(botao1, botao2, botao3, botao4, botao5, botao6);
+        menuEsquerdo.getChildren().addAll(botao1, botao2, botao3, botao4, botao5, botao6, botao7);
         menuEsquerdo.setAlignment(Pos.CENTER);
 
         HBox menuSuperior = new HBox(5);
@@ -113,6 +120,7 @@ public class Main extends Application {
         borderPane.setRight(menuDireito);
 
         Scene scene = new Scene(borderPane, 600, 600);
+        scene.getStylesheets().add("Theme.css");
         window.setScene(scene);
         window.show();
     }
@@ -139,6 +147,6 @@ public class Main extends Application {
     }
 
     Stage window;
-    Button botaoDeConfirmBox, botaoParaFecharPrograma, botao1, botao2, botao3, botao4, botao5, botao6;
+    Button botaoDeConfirmBox, botaoParaFecharPrograma, botao1, botao2, botao3, botao4, botao5, botao6, botao7;
 
 }
