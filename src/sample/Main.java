@@ -54,6 +54,8 @@ public class Main extends Application {
         botao6 = new Button("TableView");
         botao7 = new Button("Menu");
         botao8 = new Button("Properties");
+        botao9 = new Button("Movimento");
+
 
         botao1.setOnAction(e -> AlertBox.display("TITULO", "MENSAGEM DE TESTE"));
         botao2.setOnAction(e -> DropDownList.display());
@@ -63,10 +65,11 @@ public class Main extends Application {
         botao6.setOnAction(e -> Tabela.display());
         botao7.setOnAction(e -> MenuDrop.display());
         botao8.setOnAction(e -> PropertiesW.display());
+        botao9.setOnAction(e -> Movimento.display());
 
 
         VBox menuEsquerdo = new VBox(5);
-        menuEsquerdo.getChildren().addAll(botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8);
+        menuEsquerdo.getChildren().addAll(botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8, botao9);
         menuEsquerdo.setAlignment(Pos.CENTER);
 
         HBox menuSuperior = new HBox(5);
@@ -149,6 +152,6 @@ public class Main extends Application {
     }
 
     Stage window;
-    Button botaoDeConfirmBox, botaoParaFecharPrograma, botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8;
+    Button botaoDeConfirmBox, botaoParaFecharPrograma, botao1, botao2, botao3, botao4, botao5, botao6, botao7, botao8, botao9;
 
 }
